@@ -43,7 +43,7 @@ class Subversion18 < Formula
 
   # Always build against Homebrew versions instead of system versions for consistency.
   depends_on "sqlite"
-  depends_on :python => :optional
+  depends_on "python" => :optional
 
   # Bindings require swig
   depends_on "swig" if build.with?("perl") || build.with?("python") || build.with?("ruby")
@@ -229,7 +229,7 @@ class Subversion18 < Formula
   end
 
   def caveats
-    s = <<-EOS.undent
+    s = <<~EOS
       svntools have been installed to:
         #{opt_libexec}
     EOS
@@ -260,7 +260,7 @@ class Subversion18 < Formula
     end
 
      if build.with? "unicode-path"
-      s += <<-EOS.undent
+      s += <<~EOS
         This unicode-path version implements a hack to deal with composed/decomposed
         unicode handling on Mac OS X which is different from linux and windows.
         It is borrowed from http://subversion.tigris.org/issues/show_bug.cgi?id=2464 and
